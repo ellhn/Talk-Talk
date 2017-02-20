@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="talkTalk">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Talk Talk test</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    
+    <script type="text/javascript" src="libs/angular.min.js"></script>
+
+</head>
+
+<body> 
+
+    <header>
+        <div class="legend">Contact Manager</div>
+    </header>
+         
+    <talk-talk-component active="$ctrl.active()"> <span ng-click="$ctrl.active()">Press me</span></talk-talk-component>
+       
+   
+    <script type="text/javascript" src="app/app.js"></script> 
+    <script type="text/javascript" src="app/component.js"></script>
+    <script type="text/javascript" src="app/service.js"></script>
+    
+</body>
+</html>

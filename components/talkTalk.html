@@ -1,0 +1,61 @@
+ <div class="wrapper">   
+    <div class="col-lg-8">
+        <div class="row">
+            <div  class="col-lg-3 contact-frame" ng-repeat="contact in $ctrl.contacts track by $index" ng-click="$ctrl.chooseContact($index)" 
+                                                                                        ng-class="{'contact-frame-clicked':$ctrl.active(contact)}">            
+                <div class="col-lg-12 header">{{contact.name}}</div>
+                <div class="col-xs-12 inner">{{contact.email}}</div>
+                <div class="col-lg-12"><img src="{{contact.avatar}}" class="scalable"></div>        
+            </div>  
+        </div>      
+    </div>
+    <div class="col-lg-4">
+        <form name="contactsForm" ng-submit="$ctrl.addContact($ctrl.currentContact)" novalidate>
+            <div class="error-wrapper">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" ng-model="$ctrl.currentContact.name" autocomplete="off" required>  
+                <div class="form-control-error" ng-if="contactsForm.name.$invalid && !contactsForm.name.$pristine">
+                    <p>Required Field</p>
+                </div> 
+            </div>
+            <div class="error-wrapper">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" ng-model="$ctrl.currentContact.email" autocomplete="off" required>
+                <div class="form-control-error" ng-if="contactsForm.email.$invalid && !contactsForm.email.$pristine">
+                    <p>Required Field</p>
+                </div>
+            </div>
+            <div class="error-wrapper"> 
+                <label for="job">Job</label>   
+                <input type="text" name="job" class="form-control" ng-model="$ctrl.currentContact.job" autocomplete="off" required>
+                <div class="form-control-error" ng-if="contactsForm.job.$invalid && !contactsForm.job.$pristine">
+                    <p>Required Field</p>
+                </div>
+            </div> 
+            <div class="error-wrapper">   
+                <label for="location">Location</label>
+                <input type="text" name="location" class="form-control" ng-model="$ctrl.currentContact.location" autocomplete="off" required>
+                <div class="form-control-error" ng-if="contactsForm.location.$invalid && !contactsForm.location.$pristine">
+                    <p>Required Field</p>
+                </div>
+            </div>
+            <div class="error-wrapper">
+                <label for="tag">Tag</label>
+                <input type="text" name="tag" class="form-control" ng-model="$ctrl.currentContact.tag" autocomplete="off"required>
+                <div class="form-control-error" ng-if="contactsForm.tag.$invalid && !contactsForm.tag.$pristine">
+                    <p>Required Field</p>
+                </div>
+            </div>
+            <div class="error-wrapper">
+                <label for="avatar">Avatar's location</label>
+                <input type="text" name="avatar" class="form-control" ng-model="$ctrl.currentContact.avatar" autocomplete="off" required>
+                <div class="form-control-error" ng-if="contactsForm.avatar.$invalid && !contactsForm.avatar.$pristine">
+                    <p>Required Field</p>
+                </div>
+            </div>
+            <button type="button" id="reset-button" class="btn btn-danger" ng-click="$ctrl.resetContacts();contactsForm.$setPristine()">Reset</button>
+            <button type="submit" id="add-button" class="btn btn-primary"  ng-if="$ctrl.addButtonEnabled" ng-disabled="contactsForm.$invalid">Add</button>
+        </form>     
+        
+    </div>
+ </div>
